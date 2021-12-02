@@ -1,0 +1,567 @@
+@import "variables";
+@import "mixins";
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
+::selection {
+    background: #000000;
+    color: $white;
+}
+::-moz-selection {
+    background: #000000;
+    color: $white;
+}
+::-webkit-selection {
+    background: #000000;
+    color: $white;
+}
+a {
+    text-decoration: none;
+    color: $black;
+}
+header {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    text-align: center;
+    background: $bgColor;
+    .logo {
+        height: 76px;
+        padding: 50px 0px 40px;
+        a {
+            display: inline-block;
+        }
+        img {
+            width: 300px;
+            height: auto;
+        }
+    }
+    nav {
+        display: flex;
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+        }
+        li {
+            display: block;
+            margin: 0 5px;
+            padding: 16px 17px;
+            list-style: none;
+        }
+        a {
+            position: relative;
+            z-index: 1;
+            padding: 16px 17px;
+            font-family: "Montserrat";
+            font-size: 17px;
+            white-space: nowrap;
+            &::before, 
+            &::after {
+                @include link-line;
+            }
+            &::before {
+                top: -10px;
+            }
+            &::after {
+                bottom: -10px;
+            }
+            &:hover::before,
+            &:hover::after {
+                opacity: 1;
+            }
+            &:hover::before {
+                top: 0;
+            }
+            &:hover::after {
+                bottom: 0;
+            }
+        }
+    }
+}
+.content {
+    background: $bgColor;
+    .widget-1 {
+        @include widget(1000px, 100vh, $widget-1);
+    }
+    .widget-2 {
+        @include widget(1000px, 100vh, $widget-2);
+    }
+    .widget-3 {
+        @include widget(900px, 550px, $widget-3);
+        @include text($white);
+        padding-bottom: 100px;
+    }
+    .widget-4 {
+        @include widget(900px, 550px, $widget-4);
+        @include text($white);
+        padding-bottom: 100px;
+    }
+    .widget-5 {
+        @include widget(900px, 550px, $widget-5);
+        @include text($white);
+        padding-bottom: 100px;
+    }
+    .widget-6 {
+        @include widget(900px, 550px, $widget-6);
+        @include text($white);
+        padding-bottom: 100px;
+    }
+    .widget-7 {
+        @include widget(980px, 100vh, $widget-7);
+        h1 {
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+        h3 {
+            align-self: center;
+            @include font-property;
+            font-size: 40px;
+            line-height: 1;
+            letter-spacing: 2px;
+            color: $white;
+        }
+    }
+    .widget-8 {
+        @include widget(1000px, 100vh, $widget-8);
+        .widget-container {
+            justify-content: space-evenly;
+        }
+        h1 {
+            color: $black;
+        }
+        .card-contact {
+            display: flex;
+            justify-content: center;
+            width: 1120px;
+            margin: 0 auto;
+            .card-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 268.984px;
+                height: 185px;
+                margin: 0 15px;
+                padding: 25px;
+                background: $white;
+            }
+            h3 {
+                @include font-property;
+                font-size: 26px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            p {
+                font-size: 18px;
+                line-height: 1.4;
+                text-align: center;
+            }
+            #mark {
+                width: 78px;
+                height: 78px;
+                background: url(../img/mark.png);
+            }
+            #phone {
+                width: 78px;
+                height: 78px;
+                background: url(../img/phone.png);
+            }
+            #email {
+                width: 78px;
+                height: 78px;
+                background: url(../img/email.png);
+            }
+        }
+    }
+    .discover {
+        &::before {
+            @include section-line;
+            top: 20px;
+        }
+        position: relative;
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 220px 0 37px;
+        @include text(#000);
+    }
+    .detail {
+        &::before {
+            @include section-line;
+            top: 0;
+        }
+        position: relative;
+        margin: 0 auto;
+        padding: 100px 0 0;
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 1200px;
+            height: 560px;
+            margin: 115px auto 0;
+        }
+        .wrap-block {
+            position: relative;
+            width: 400px;
+            height: 540px;
+            padding: 10px;
+            overflow: hidden;
+        }
+        .wrap-block:nth-child(2) {
+            overflow: visible;
+        }
+        .wrap-block img {
+            width: 100%;
+            height: 100%;
+        }
+        .front {
+            position: relative;
+            width: 380px;
+            height: 540px;
+            box-shadow: 0 0 10px 0px rgba(78, 77, 77, 0.35);
+        }
+        #front-two {
+            transform: rotateY(0);
+        }
+        .back {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 380px;
+            height: 540px;
+            text-align: center;
+            background: #fff;
+            box-shadow: 0 0 10px 0px rgba(123, 123, 123, 0.35);
+            transition: .5s;
+        }
+        #back-one {
+            transform: translateY(-560px);
+        }
+        #back-two {
+            transform: rotateY(90deg);
+        }
+        #back-three {
+            transform: translateX(400px);
+        }
+        .back h2 {
+            @include font-property;
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
+        .back p {
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        .back a {
+            width: auto;
+            margin: 10px auto 0;
+            padding: 12px 25px;
+            text-decoration: none;
+            text-align: center;
+            color: #D4AA00;
+            background: rgba(212, 170, 0, 0);
+            border: 2px solid #D4AA00;
+            border-radius: 2px;
+            transition: .33s;
+        }
+        .back a:hover {
+            color: #fff;
+            background: #D4AA00;
+        }
+    }
+    .partners {
+        &::before {
+            @include section-line;
+            top: 50px;
+        }
+        position: relative;
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 215px 0 100px;
+        h2 {
+            margin-bottom: 20px;
+            @include font-property;
+            font-size: 65px;
+            letter-spacing: 4px;
+        }
+        .carousel {
+            position: relative;
+            display: flex;
+            height: 230px;
+            cursor: pointer;
+        }
+        .swiper-slider-wrap {
+            display: flex;
+        }
+        .swiper-slider {
+            width: 265.5px;
+            height: 100%;
+            margin-right: 10px;
+        }
+        .swiper-slider:first-child {
+            background: url(https://www.tenco.ch/wp-content/uploads/2020/09/boucheron-150x150-1.png) 50% 50%;
+        }
+        .swiper-slider:nth-child(2) {
+            background: url(https://www.tenco.ch/wp-content/uploads/2020/09/LVMH-150x150-1.png) 50% 50%;
+        }
+        .swiper-slider:nth-child(3) {
+            background: url(https://www.tenco.ch/wp-content/uploads/2020/09/En-coulisse-150x150-1.png) 50% 50%;
+        }
+        .swiper-slider:nth-child(4) {
+            background: url(https://www.tenco.ch/wp-content/uploads/2020/09/elite-rent-a-car-150x150-1.png) 50% 50%;
+        }
+        .swiper-btn {
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+        }
+        .btn-prev {
+            left: 10px;
+            background: url(../img/prev.png) no-repeat;
+            background-size: cover;
+        }
+        .btn-next {
+            right: 10px;
+            background: url(../img/next.png) no-repeat;
+            background-size: cover;
+        }
+    }
+    .services {
+        position: relative;
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 100px 0 20px;
+        @include text(#000);
+    }
+    .events {
+        &::before {
+            @include section-line;
+            top: 60px;
+        }
+        position: relative;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 220px 0 20px;
+        @include text(#000);
+        h2 {
+            padding-bottom: 20px;
+        }
+        h2, p {
+            padding-right: 20px;
+            text-align: left;
+        }
+        img {
+            width: 529px;
+            height: 792px;
+            padding: 10px;
+        }
+    }
+    .annual {
+        &::before {
+            @include section-line;
+            top: 60px;
+        }
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 220px 0 20px;
+        @include text(#000);
+        h2 {
+            padding-bottom: 20px;
+        }
+        h2, p {
+            padding-right: 20px;
+        }
+        video {
+            width: 800px;
+            height: 450px;
+            margin-top: 60px;
+        }
+    }
+    .events-2021 {
+        &::before {
+            @include section-line;
+            top: 60px;
+        }
+        position: relative;
+        z-index: 1;
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 220px 10px 110px;
+        .timeline {
+            position: absolute;
+            z-index: 1;
+            top: 17.5%;
+            left: 49.7%;
+            right: auto;
+            z-index: 0;
+            width: 3px;
+            height: 76%;
+            overflow: hidden;
+        }
+        .back-line {
+            position: absolute;
+            z-index: 1;
+            width: 3px;
+            height: 100%;
+            background: #eee;
+        }
+        .front-line {
+            position: absolute;
+            top: 0;
+            z-index: 2;
+            width: 3px;
+            height: 480px;
+            background: $gold;
+        }
+        @include text(#000);
+        > h2 {
+            margin-bottom: 60px;
+        }
+        .mounth {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .justify-left {
+            justify-content: flex-start;
+        }
+        .justify-right {
+            justify-content: flex-end;
+        }
+        .description {
+            position: relative;
+            width: 435px;
+            padding: 40px;
+            background: $white;
+            border-radius: 4px;
+            filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.12));
+            h2 {
+                font-size: 50px;
+                line-height: 1;
+            }
+        }
+        .description.left {
+            h2, p {
+                text-align: left;
+            }
+        }
+        .description.right {
+            h2, p {
+                text-align: right;
+            }
+        }
+        .description.left::before {
+            @include arrow-left;
+        }
+        .description.right::after {
+            @include arrow-right;
+        }
+        .address {
+            font-size: 18px;
+            line-height: 1.2;
+            text-transform: uppercase;
+            a {
+                color: $gold;
+            }
+            img {
+                margin: 20px 0;
+            }
+        }
+        .marker {
+            width: 60px;
+            height: 60px;
+            background: #D4AA00 url(../img/calendar.svg) no-repeat 50% 50%;
+            background-size: 30%;
+            border-radius: 50%;
+        }
+        .date p {
+            margin-bottom: 0;
+            font-size: 20px;
+            @include text(#000);
+        }
+        .justify-left .marker {
+            margin-left: 15px;
+        }
+        .justify-right .marker {
+            margin-right: 15px;
+        }
+        .justify-left .date {
+            margin-left: 15px;
+        }
+        .justify-right .date {
+            margin-right: 15px;
+        }
+    }
+}
+footer {
+    padding: 50px 0 16px;
+    background: $silver;
+    h3 {
+        max-width: 1120px;
+        margin: 0 auto 20px;
+        @include font-property;
+        font-size: 31px;
+        letter-spacing: 2px;
+    }
+    .social {
+        display: flex;
+        justify-content: center;
+        max-width: 1120px;
+        margin: 0 auto 50px;
+        a {
+            width: 35px;
+            height: 35px;
+            margin: 0 10px;
+            transition: .25s;
+        }
+        a:first-child {
+            background: url(../img/inst.svg);
+            background-size: cover;
+        }
+        a:first-child:hover {
+            background: url(../img/inst-hover.svg);
+            background-size: cover;
+        }
+        a:nth-child(2) {
+            background: url(../img/in.svg);
+            background-size: cover;
+        }
+        a:nth-child(2):hover {
+            background: url(../img/in-hover.svg);
+            background-size: cover;
+        }
+        a:last-child {
+            background: url(../img/fb.svg);
+            background-size: cover;
+        }
+        a:last-child:hover {
+            background: url(../img/fb-hover.svg);
+            background-size: cover;
+        }
+    }
+    p {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 27px 10px 16px;
+        font-family: 'Darker Grotesque', sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        text-align: center;
+    }
+}

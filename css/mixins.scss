@@ -1,0 +1,105 @@
+@mixin font-property {
+    font-family: 'Darker Grotesque', sans-serif;
+    font-weight: inherit;
+    line-height: 0.78;
+    text-transform: uppercase;
+    text-align: center;
+}
+@mixin link-line {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: $gold;
+    opacity: 0;
+    transition: .3s;
+    transition-timing-function: cubic-bezier(.58,.3,.005,1);
+}
+@mixin bg-overlay {
+    .bg-overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #000;
+        opacity: 0.35;
+        transition: 0.3s;
+    }
+}
+@mixin section-line {
+    content: "";
+    position: absolute;
+    left: 50%;
+    z-index: 3;
+    display: block;
+    width: 1px;
+    height: 100px;
+    background: #DEDEDE;
+}
+@mixin text($color) {
+    h2 {
+        margin-bottom: 20px;
+        @include font-property;
+        font-size: 65px;
+        letter-spacing: 4px;
+        color: $color;
+    }
+    p {
+        margin-bottom: 35px;
+        font-size: 20px;
+        line-height: 1.85714285714286;
+        text-align: center;
+        color: $color;
+    }
+}
+@mixin widget($width, $height, $widget-img) {
+    .widget {
+        position: relative;
+        z-index: 3;
+        height: $height;
+        margin-top: 0;
+        margin-bottom: 0;
+        background: $bgColor url($widget-img) top center no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    @include bg-overlay;
+    .widget-container {
+        position: relative;
+        z-index: 4;
+        display: flex;
+        flex-direction: column !important;
+        justify-content: center;
+        max-width: $width;
+        height: 100%;
+        margin: 0 auto;
+    }
+    h1 {
+        align-self: center;
+        @include font-property;
+        font-size: 90px;
+        letter-spacing: 8px;
+        color: $white;
+    }
+}
+@mixin arrow {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 15px;
+    height: 15px;
+    background: $white;
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.12));
+}
+@mixin arrow-left {
+    @include arrow;
+    left: -15px;
+    clip-path: polygon(0 45%, 100% 0, 100% 100%);
+}
+@mixin arrow-right {
+    @include arrow;
+    right: -15px;
+    clip-path: polygon(100% 45%, 0 0, 0 100%);
+}
